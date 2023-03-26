@@ -4,8 +4,8 @@ public class EnemyBehaviour : MonoBehaviour
 {
     public int damageOnCollision = 5;
 
-    public float Hitpoints;
-    public float MaxHealth = 60;
+    public int MaxHealth = 60;
+    public int CurrentHealth;
     public HealthBarBehaviour Healthbar;
 
     public float speed;
@@ -20,17 +20,30 @@ public class EnemyBehaviour : MonoBehaviour
     {
         target = waypoints[0];
 
-        Hitpoints = MaxHealth;
-        Healthbar.SetHealth(Hitpoints, MaxHealth);
+        CurrentHealth = MaxHealth;
+        Healthbar.SetHealth(CurrentHealth, MaxHealth);
     }
 
-    public void TakeHit(float damage)
+    public void TakeHit(int damage)
     {
-        Hitpoints -= damage;
+        CurrentHealth -= damage;
 
-        if (Hitpoints <= 0)
+        Debug.Log(CurrentHealth);
+
+        if (CurrentHealth <= 0)
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Player"))
+        {
+            PlayerHealth playerHealth = collision.transform.GetComponent<PlayerHealth>();
+            playerHealth.TakeDamage(damageOnCollision);
+
+            CurrentHealth = CurrentHealth - 30;
         }
     }
 
@@ -44,15 +57,6 @@ public class EnemyBehaviour : MonoBehaviour
             destPoint = (destPoint + 1) % waypoints.Length;
             target = waypoints[destPoint];
             graphics.flipX = !graphics.flipX;
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.transform.CompareTag("Player"))
-        {
-            PlayerHealth playerHealth = collision.transform.GetComponent<PlayerHealth>();
-            playerHealth.TakeDamage(damageOnCollision);
         }
     }
 }

@@ -34,6 +34,7 @@ public class PlayerCombat : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<EnemyFollow>().TakeHit(attackDamage);
+            enemy.GetComponent<EnemyBehaviour>().TakeHit(attackDamage);
         }
     }
 
@@ -47,11 +48,13 @@ public class PlayerCombat : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        var enemy = collision.collider.GetComponent<EnemyFollow>();
+        var enemyBat = collision.collider.GetComponent<EnemyFollow>();
+        var enemySke = collision.collider.GetComponent<EnemyFollow>();
 
-        if (enemy)
+        if (enemyBat || enemySke)
         {
-            enemy.TakeHit(1);
+            enemyBat.TakeHit(1);
+            enemySke.TakeHit(1);
         }
     }
 }
