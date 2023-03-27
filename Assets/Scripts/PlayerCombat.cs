@@ -33,8 +33,8 @@ public class PlayerCombat : MonoBehaviour
         //dommage aux énemis
         foreach (Collider2D enemy in hitEnemies)
         {
-            enemy.GetComponent<EnemyFollow>().TakeHit(attackDamage);
             enemy.GetComponent<EnemyBehaviour>().TakeHit(attackDamage);
+            enemy.GetComponent<EnemyFollow>().TakeHit(attackDamage);
         }
     }
 
@@ -46,7 +46,7 @@ public class PlayerCombat : MonoBehaviour
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    /*private void OnCollisionEnter2D(Collision2D collision)
     {
         var enemyBat = collision.collider.GetComponent<EnemyFollow>();
         var enemySke = collision.collider.GetComponent<EnemyFollow>();
@@ -56,5 +56,5 @@ public class PlayerCombat : MonoBehaviour
             enemyBat.TakeHit(1);
             enemySke.TakeHit(1);
         }
-    }
+    }*/
 }

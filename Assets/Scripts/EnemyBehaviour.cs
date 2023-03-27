@@ -33,6 +33,8 @@ public class EnemyBehaviour : MonoBehaviour
         if (CurrentHealth <= 0)
         {
             Destroy(gameObject);
+
+            Debug.Log("Ennemi mort");
         }
     }
 
@@ -43,7 +45,7 @@ public class EnemyBehaviour : MonoBehaviour
             PlayerHealth playerHealth = collision.transform.GetComponent<PlayerHealth>();
             playerHealth.TakeDamage(damageOnCollision);
 
-            CurrentHealth = CurrentHealth - 30;
+            //CurrentHealth = CurrentHealth - 30;
         }
     }
 
