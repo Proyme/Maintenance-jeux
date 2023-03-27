@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4515897486197932348}
   - component: {fileID: 4515897486197932350}
   - component: {fileID: 4515897486197932351}
-  - component: {fileID: 4515897486197932344}
   m_Layer: 6
   m_Name: Bat
   m_TagString: Untagged
@@ -126,21 +125,4 @@ MonoBehaviour:
   damageOnCollision: 5
   Hitpoints: 0
   maxHealth: 10
-  Healthbar: {fileID: 4515897486197932344}
   speed: 1
---- !u!114 &4515897486197932344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4515897486197932323}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac2f6e5f9a514cc468603379492db4bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Slider: {fileID: 0}
-  Low: {r: 0, g: 0, b: 0, a: 0}
-  High: {r: 0, g: 0, b: 0, a: 0}
-  Offset: {x: 0, y: 0, z: 0}

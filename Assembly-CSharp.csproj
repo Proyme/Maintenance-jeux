@@ -55,7 +55,6 @@
      <Compile Include="Assets\Scripts\PlayerHealth.cs" />
      <Compile Include="Assets\Scripts\CurrentSceneManager.cs" />
      <Compile Include="Assets\Scripts\Inventory.cs" />
-     <Compile Include="Assets\Scripts\HealthBarBehaviour.cs" />
      <Compile Include="Assets\Scripts\PrendrePiece.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\PlayerCombat.cs" />
@@ -63,6 +62,8 @@
      <Compile Include="Assets\Scripts\EnemyBehaviour.cs" />
      <Compile Include="Assets\Scripts\Movement.cs" />
      <Compile Include="Assets\Scripts\HealthBarPerso.cs" />
+     <Compile Include="Assets\EnemySpawner.cs" />
+     <Compile Include="Assets\CoinSpawner.cs" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Users/jules/OneDrive/Documents/2020.3.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>

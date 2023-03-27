@@ -8,7 +8,6 @@ public class EnemyFollow : MonoBehaviour
 
     public float Hitpoints;
     public float maxHealth = 20;
-    public HealthBarBehaviour Healthbar;
 
     [SerializeField] private float speed = 1;
 
@@ -22,7 +21,6 @@ public class EnemyFollow : MonoBehaviour
     void Start()
     {
         Hitpoints = maxHealth;
-        Healthbar.SetHealth(Hitpoints, maxHealth);
     }
 
     public void TakeHit(float damage)

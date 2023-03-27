@@ -6,7 +6,6 @@ public class EnemyBehaviour : MonoBehaviour
 
     public int MaxHealth = 60;
     public int CurrentHealth;
-    public HealthBarBehaviour Healthbar;
 
     public float speed;
     public Transform[] waypoints;
@@ -21,7 +20,6 @@ public class EnemyBehaviour : MonoBehaviour
         target = waypoints[0];
 
         CurrentHealth = MaxHealth;
-        Healthbar.SetHealth(CurrentHealth, MaxHealth);
     }
 
     public void TakeHit(int damage)
