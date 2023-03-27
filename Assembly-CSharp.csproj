@@ -59,10 +59,10 @@
      <Compile Include="Assets\Scripts\PrendrePiece.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\PlayerCombat.cs" />
+     <Compile Include="Assets\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\EnemyBehaviour.cs" />
      <Compile Include="Assets\Scripts\Movement.cs" />
      <Compile Include="Assets\Scripts\HealthBarPerso.cs" />
-     <Compile Include="Assets\CameraFollow.cs" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Users/jules/OneDrive/Documents/2020.3.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
