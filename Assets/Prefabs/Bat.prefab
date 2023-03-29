@@ -125,4 +125,4 @@ MonoBehaviour:
   damageOnCollision: 5
   Hitpoints: 0
   maxHealth: 10
-  speed: 1
+  aiPath: {fileID: 6680932847066080752, guid: 7f7eaa0ea3ebd0c4fa571b308a0e1a33, type: 3}
