@@ -14,7 +14,7 @@ public class Inventory : MonoBehaviour
     {
         if (instance != null)
         {
-            Debug.LogWarning("oui inv");
+            //Debug.LogWarning("oui inv");
             return;
         }
 
@@ -23,6 +23,7 @@ public class Inventory : MonoBehaviour
 
     public void AddCoins(int count)
     {
+        Debug.LogWarning("plus 1 piece");
         coinsCount += count;
         coinsCountText.text = coinsCount.ToString();
     }
