@@ -5,7 +5,7 @@ using Pathfinding;
 
 public class EnemyFollow : MonoBehaviour
 {
-    public int damageOnCollision = 5;
+    public int damageOnCollision = 10;
 
     public float Hitpoints;
     public float maxHealth = 20;

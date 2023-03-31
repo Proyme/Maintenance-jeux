@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int maxHealth = 100;
+    public int maxHealth = 10;
     public int currentHealth;
 
     public float invincibleTimeAfterHit = 3f;
@@ -87,5 +87,13 @@ public class PlayerHealth : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         invinsible = false;
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Water")
+        {
+            Destroy(gameObject); // détruire le joueur
+        }
     }
 }

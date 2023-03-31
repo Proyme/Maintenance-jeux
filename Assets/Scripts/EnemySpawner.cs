@@ -26,6 +26,11 @@ public class EnemySpawner : MonoBehaviour
             SpawnMob();
             spawnTimer = spawnInterval;
         }
+
+        if (GameObject.Find("Player") == null)
+        {
+            Time.timeScale = 0;
+        }
     }
 
     void SpawnMob()
