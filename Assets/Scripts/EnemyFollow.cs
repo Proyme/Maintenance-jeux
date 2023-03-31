@@ -49,5 +49,11 @@ public class EnemyFollow : MonoBehaviour
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
+
+        GameObject player = GameObject.Find("Player");
+        if (player != null)
+        {
+            aiPath.target = player.transform;
+        }
     }
 }

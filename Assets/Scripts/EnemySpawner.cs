@@ -4,22 +4,34 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject swarmerPrefab;
+    public GameObject Mobs;
+    public float spawnRadius = 10f;
+    public float spawnInterval = 2f;
 
-    [SerializeField]
-    private float swarmerInterval = 3.5f;
+    private float spawnTimer;
 
-    // Start is called before the first frame update
+    private Transform Player;
+
     void Start()
     {
-        StartCoroutine(spawnEnemy(swarmerInterval, swarmerPrefab));
+        Player = GameObject.FindWithTag("Player").transform;
     }
 
-    private IEnumerator spawnEnemy(float interval, GameObject enemy)
+    void Update()
     {
-        yield return new WaitForSeconds(interval);
-        GameObject newEnemy = Instantiate(enemy, new Vector3(Random.Range(-5f, 5), Random.Range(-6f, 6f), 0), Quaternion.identity);
-        StartCoroutine(spawnEnemy(interval, enemy));
+        spawnTimer -= Time.deltaTime;
+
+        if (spawnTimer <= 0f)
+        {
+            SpawnMob();
+            spawnTimer = spawnInterval;
+        }
+    }
+
+    void SpawnMob()
+    {
+        Vector3 randomPosition = Player.position + Random.insideUnitSphere * spawnRadius;
+        //Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        GameObject mobObject = Instantiate(Mobs, randomPosition, Quaternion.identity);
     }
 }
