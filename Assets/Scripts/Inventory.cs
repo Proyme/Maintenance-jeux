@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
+
     public int coinsCount;
     public Text coinsCountText;
 
@@ -18,33 +19,23 @@ public class Inventory : MonoBehaviour
         if (instance != null)
         {
             //Debug.LogWarning("oui inv");
-            int score = PlayerPrefs.GetInt("score");
-            scoreText.text = "Score: " + score.ToString();
             return;
         }
 
         instance = this;
     }
 
-    public void AddCoins(int count)
+    public void AddCoins()
     {
         Debug.Log("plus 1 piece");
-        coinsCount += count;
+        int previousCount = coinsCount;
+        coinsCount ++;
         coinsCountText.text = coinsCount.ToString();
     }
 
-    public void RemoveCoins(int count)
+    public void RemoveCoins(int coin)
     {
-        coinsCount -= count;
+        coinsCount = coin;
         coinsCountText.text = coinsCount.ToString();
-    }
-
-    private void Update()
-    {
-        if (GameObject.Find("Player") == null)
-        {
-            PlayerPrefs.SetInt("Mailleur Score", coinsCount);
-            PlayerPrefs.Save();
-        }
     }
 }

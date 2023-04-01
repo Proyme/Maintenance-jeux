@@ -15,6 +15,9 @@ public class PlayerHealth : MonoBehaviour
 
     public static PlayerHealth instance;
 
+    UIManager uiManager;
+    Inventory inventory;
+
     private void Awake()
     {
         if (instance != null)
@@ -60,6 +63,8 @@ public class PlayerHealth : MonoBehaviour
         Movement.instance.rb.velocity = Vector3.zero;
         Movement.instance.playerCollider2D.enabled = false;
         GameOver.instance.OnPlayerDeath();
+
+        uiManager.AfficherMenuGameOver(inventory.coinsCount);
     }
 
     public void Respawn()
@@ -93,7 +98,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (collision.gameObject.tag == "Water")
         {
-            Destroy(gameObject); // détruire le joueur
+            Die(); // il meurt
         }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
-    public GameObject gameOverUI;
+    public GameObject Menu;
 
     public static GameOver instance;
 
@@ -19,19 +19,24 @@ public class GameOver : MonoBehaviour
         instance = this;
     }
 
+    void Start()
+    {
+        Menu.SetActive(false);
+    }
+
     public void OnPlayerDeath()
     {
-        gameOverUI.SetActive(true);
+        Menu.SetActive(true);
     }
 
     public void RetryButton()
     {
-        Inventory.instance.RemoveCoins(CurrentSceneManager.instance.coinsPickedUpCount);
+        Inventory.instance.RemoveCoins(0);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
         PlayerHealth.instance.Respawn();
 
-        gameOverUI.SetActive(false);
+        Menu.SetActive(false);
     }
 
     public void MainMenuButton()

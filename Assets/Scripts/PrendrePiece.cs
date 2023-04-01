@@ -8,8 +8,7 @@ public class PrendrePiece : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Inventory.instance.AddCoins(1);
-            CurrentSceneManager.instance.coinsPickedUpCount++;
+            Inventory.instance.AddCoins();
             Destroy(gameObject);
         }
     }
