@@ -26,6 +26,12 @@ public class Inventory : MonoBehaviour
         instance = this;
     }
 
+    private void Start()
+    {
+        int mScore = PlayerPrefs.GetInt("mScore");
+        scoreText.text = "Score: " + mScore.ToString();
+    }
+
     public void AddCoins(int count)
     {
         Debug.Log("plus 1 piece");
@@ -37,14 +43,5 @@ public class Inventory : MonoBehaviour
     {
         coinsCount -= count;
         coinsCountText.text = coinsCount.ToString();
-    }
-
-    private void Update()
-    {
-        if (GameObject.Find("Player") == null)
-        {
-            PlayerPrefs.SetInt("Mailleur Score", coinsCount);
-            PlayerPrefs.Save();
-        }
     }
 }

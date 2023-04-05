@@ -15,6 +15,8 @@ public class PlayerHealth : MonoBehaviour
 
     public static PlayerHealth instance;
 
+    private Inventory inventory;
+
     private void Awake()
     {
         if (instance != null)
@@ -29,7 +31,6 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-
     }
 
     public void TakeDamage(int damage)
@@ -53,6 +54,8 @@ public class PlayerHealth : MonoBehaviour
 
     public void Die()
     {
+        PlayerPrefs.SetInt("mScore", inventory.coinsCount);
+        PlayerPrefs.Save();
         Debug.Log("Le joueur est éliminé");
         Movement.instance.enabled = false;
         Movement.instance.m_animateur.SetTrigger("Die");
@@ -89,11 +92,14 @@ public class PlayerHealth : MonoBehaviour
         invinsible = false;
     }
 
-    void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Water")
+        // Check if the collision is with a specific tag
+        if (collision.gameObject.tag == "vide")
         {
-            Destroy(gameObject); // détruire le joueur
+            // Do something (e.g. play a sound)
+            Debug.Log("Collided with player!");
+            Die();
         }
     }
 }
